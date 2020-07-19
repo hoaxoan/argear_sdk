@@ -1,0 +1,101 @@
+group 'com.seerslab.argear.argear_sdk'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 23
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //debuggable debugDebuggable
+            /*multiDexEnabled false
+            android.applicationVariants.all{ variant ->
+                variant.outputs.all {
+                    outputFileName = "ARGearSample.apk"
+                }
+            }*/
+        }
+        /* release {
+             minifyEnabled true
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+             android.applicationVariants.all{ variant ->
+                 variant.outputs.all {
+                     outputFileName = "ARGearSample.apk"
+                 }
+             }
+         }*/
+    }
+
+
+     /*sourceSets {
+         main {
+             jniLibs.srcDirs = ['libs']
+         }
+     }*/
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
+
+    // Agora
+    implementation 'io.agora.rtc:full-sdk:3.0.0'
+
+    // ARGear
+    //implementation(group: 'argear_sdk', name: 'argear', ext: 'aar')
+    //api(name: 'argear', ext: 'aar')
+
+    // To add TensorFlow Lite library
+    implementation 'org.tensorflow:tensorflow-lite:1.14.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:1.14.0'
+
+    // To add Retrofit library
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
+
+    // To add gson library
+    implementation "com.google.code.gson:gson:2.8.5"
+    implementation project(path: ':argear')
+}
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/argear/argear.iml" filepath="$PROJECT_DIR$/.idea/modules/argear/argear.iml" group="argear_sdk/argear" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/argear_sdk.iml" filepath="$PROJECT_DIR$/.idea/modules/argear_sdk.iml" group="argear_sdk" />
+    </modules>
+  </component>
+</project>
